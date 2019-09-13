@@ -1,11 +1,3 @@
-//
-//  RedditPostTableViewCell.swift
-//  RedditPostViewer
-//
-//  Created by Akhil Pothana on 9/12/19.
-//  Copyright © 2019 Akhil. All rights reserved.
-//
-
 import UIKit
 
 class RedditPostTableViewCell: UITableViewCell {

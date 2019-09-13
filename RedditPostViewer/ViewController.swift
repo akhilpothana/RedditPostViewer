@@ -1,14 +1,8 @@
-//
-//  ViewController.swift
-//  RedditPostViewer
-//
-//  Created by Akhil Pothana on 9/12/19.
-//  Copyright © 2019 Akhil. All rights reserved.
-//
-
 import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    let urlString = "https://www.reddit.com/.json"
     
     @IBOutlet var redditTableView: UITableView!
     
@@ -18,9 +12,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.downlaodJsonWithURL()
+        
+        
         redditTableView.delegate = self
         redditTableView.dataSource = self
         registerNibs()
+        
+        navigationController?.navigationBar.prefersLargeTitles = true 
     }
     
     private func setup() {
@@ -52,5 +51,35 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
+    
+    func downlaodJsonWithURL() {
+        let url = NSURL(string: urlString)
+        URLSession.shared.dataTask(with: (url as? URL)!, completionHandler: {(data, response, error) -> Void in
+            
+        }).resume()
+    }
+    
+    func downloadJsonWithTask(){
+        
+        let url = NSURL(string: urlString)
+        
+        var downloadTask = URLRequest(url: (url as? URL)!, cachePolicy: URLRequest.CachePolicy. reloadIgnoringCacheData, timeoutInterval: 20)
+        
+        var downloadRequest = URLRequest(url: as? URL)!)
+        
+        downloadTask.httpMethod = "GET"
+        
+        
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
 }
 
